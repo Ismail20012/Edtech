@@ -1,0 +1,43 @@
+<div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+    <div class="bg-blue-600 text-white p-4 font-bold">
+        Draft Results: Confirm Grades
+    </div>
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">OCR Name</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Match Score</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Grade (/20)</th>
+                <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase">Action</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            {% for draft in drafts %}
+            <tr>
+                <td class="px-4 py-2 text-sm text-gray-700">
+                    <div class="font-medium">{{ draft.student_name_raw }}</div>
+                    <div class="text-xs text-blue-600">Matched: {{ draft.matched_student.first_name_fr }} {{ draft.matched_student.last_name_fr }}</div>
+                </td>
+                <td class="px-4 py-2 text-sm">
+                    <span class="{% if draft.confidence_score > 0.8 %}text-green-600{% elif draft.confidence_score > 0.5 %}text-yellow-600{% else %}text-red-600{% endif %} font-bold">
+                        {{ draft.confidence_score|floatformat:2 }}
+                    </span>
+                </td>
+                <td class="px-4 py-2">
+                    <input type="text" name="grade" value="{{ draft.grade_raw }}" 
+                           class="w-16 border rounded p-1 text-center font-mono" id="grade-{{ draft.id }}">
+                </td>
+                <td class="px-4 py-2 text-center" id="status-{{ draft.id }}">
+                    <button hx-post="/confirm_draft/{{ draft.id }}/" 
+                            hx-include="#grade-{{ draft.id }}, #student-{{ draft.id }}"
+                            hx-target="#status-{{ draft.id }}"
+                            class="bg-green-600 text-white text-xs px-2 py-1 rounded hover:bg-green-700">
+                        Confirm
+                    </button>
+                    <input type="hidden" name="student_id" value="{{ draft.matched_student.id }}" id="student-{{ draft.id }}">
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

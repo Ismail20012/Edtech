@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-xl font-bold mb-6 text-gray-700">Upload Grade Sheet (OCR)</h2>
+    
+    <form hx-post="/upload/" hx-encoding="multipart/form-data" hx-target="#results" hx-indicator="#loading">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Subject</label>
+            <select name="subject_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border">
+                {% for sub in subjects %}
+                <option value="{{ sub.id }}">{{ sub.name_fr }} / {{ sub.name_ar }} (Coeff: {{ sub.coefficient }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700">Grade Sheet Image</label>
+            <input type="file" name="file" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition">
+            Start OCR Analysis
+        </button>
+    </form>
+
+    <div id="results" class="mt-10">
+        <!-- Results or loading spinner will appear here -->
+    </div>
+</div>
+{% endblock %}
