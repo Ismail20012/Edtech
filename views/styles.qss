@@ -1,0 +1,308 @@
+/*
+ * Copyright (C) 2025 Gemini Project. All rights reserved.
+ *
+ * This software is licensed under the MIT License.
+ * For the full license text, see the LICENSE file in the project root.
+ */
+
+/* --- MOD BEGIN: Enhanced Styling for Ribbon Interface --- */
+
+QWidget {
+    font-family: 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #333;
+}
+
+QMainWindow {
+    background-color: #fcfcfc;
+}
+
+/* Ribbon Widget Styling */
+RibbonWidget {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+/* Enhanced Button Styling for Ribbon */
+QPushButton {
+    background-color: #1D6F42; /* Excel green */
+    color: white;
+    border: 1px solid #1D6F42;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+QPushButton:hover {
+    background-color: #185a36;
+    border: 1px solid #185a36;
+}
+
+QPushButton:pressed {
+    background-color: #14482d;
+}
+
+QPushButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    border: 1px solid #cccccc;
+}
+
+/* Ribbon Button Specific Styling */
+RibbonButton {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 8pt;
+}
+
+RibbonButton:hover {
+    background-color: #e8f4f8;
+    border: 1px solid #bee6fd;
+}
+
+RibbonButton:pressed {
+    background-color: #cce8f4;
+    border: 1px solid #86c5da;
+}
+
+RibbonButton:disabled {
+    color: #888;
+    background-color: transparent;
+}
+
+/* Progress Bar */
+QProgressBar {
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #e8e8e8;
+    height: 20px;
+}
+
+QProgressBar::chunk {
+    background-color: #1D6F42;
+    width: 20px;
+    margin: 1px;
+    border-radius: 3px;
+}
+
+/* Table View Styling */
+QTableView {
+    border: 1px solid #c4c4c4;
+    gridline-color: #e8e8e8;
+    selection-background-color: #e8f4f8;
+    alternate-background-color: #f8f9fa;
+    background-color: white;
+}
+
+QTableView::item {
+    padding: 8px;
+    border: none;
+}
+
+QTableView::item:selected {
+    background-color: #1D6F42;
+    color: white;
+}
+
+QTableView::item:hover {
+    background-color: #e8f4f8;
+}
+
+/* Tree View Styling */
+QTreeView {
+    border: 1px solid #c4c4c4;
+    background-color: white;
+    selection-background-color: #e8f4f8;
+}
+
+QTreeView::item {
+    padding: 4px;
+    border: none;
+}
+
+QTreeView::item:selected {
+    background-color: #1D6F42;
+    color: white;
+}
+
+QTreeView::item:hover {
+    background-color: #e8f4f8;
+}
+
+QTreeView::branch:has-siblings:!adjoins-item {
+    border-image: url(vline.png) 0;
+}
+
+QTreeView::branch:has-siblings:adjoins-item {
+    border-image: url(branch-more.png) 0;
+}
+
+QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+    border-image: url(branch-end.png) 0;
+}
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+    border-image: none;
+    image: url(branch-closed.png);
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+    border-image: none;
+    image: url(branch-open.png);
+}
+
+/* Header View */
+QHeaderView::section {
+    background-color: #f0f0f0;
+    padding: 6px;
+    border: 1px solid #c4c4c4;
+    font-weight: bold;
+    color: #333;
+}
+
+QHeaderView::section:hover {
+    background-color: #e8e8e8;
+}
+
+/* Dock Widget Styling */
+QDockWidget {
+    border: 1px solid #c4c4c4;
+    titlebar-close-icon: url(close.png);
+    titlebar-normal-icon: url(undock.png);
+}
+
+QDockWidget::title {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 4px;
+    border-bottom: 1px solid #c4c4c4;
+    font-weight: bold;
+}
+
+QDockWidget::close-button, QDockWidget::float-button {
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 2px;
+}
+
+QDockWidget::close-button:hover, QDockWidget::float-button:hover {
+    background: #e8e8e8;
+}
+
+/* Splitter Styling */
+QSplitter::handle {
+    background-color: #d0d0d0;
+    width: 2px;
+    height: 2px;
+}
+
+QSplitter::handle:hover {
+    background-color: #1D6F42;
+}
+
+/* Status Bar */
+QStatusBar {
+    background-color: #f8f9fa;
+    border-top: 1px solid #d0d0d0;
+    color: #333;
+}
+
+QStatusBar::item {
+    border: none;
+}
+
+/* Label Styling */
+QLabel#titleLabel {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #1D6F42;
+}
+
+QLabel#infoLabel {
+    font-size: 10pt;
+    color: #666;
+}
+
+/* Tab Widget Enhanced */
+QTabWidget::pane {
+    border: none;
+    background-color: #f8f9fa;
+}
+
+QTabWidget::tab-bar {
+    alignment: left;
+}
+
+QTabBar::tab {
+    background-color: #e9ecef;
+    border: 1px solid #d0d0d0;
+    border-bottom: none;
+    padding: 8px 16px;
+    margin-right: 2px;
+    font-size: 10pt;
+}
+
+QTabBar::tab:selected {
+    background-color: #f8f9fa;
+    color: #1D6F42;
+    font-weight: bold;
+    border-bottom: 2px solid #1D6F42;
+}
+
+QTabBar::tab:hover {
+    background-color: #dee2e6;
+}
+
+/* Scroll Bar Styling */
+QScrollBar:vertical {
+    border: 1px solid #c4c4c4;
+    background: #f8f9fa;
+    width: 12px;
+    margin: 0;
+}
+
+QScrollBar::handle:vertical {
+    background: #d0d0d0;
+    min-height: 20px;
+    border-radius: 6px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #1D6F42;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+QScrollBar:horizontal {
+    border: 1px solid #c4c4c4;
+    background: #f8f9fa;
+    height: 12px;
+    margin: 0;
+}
+
+QScrollBar::handle:horizontal {
+    background: #d0d0d0;
+    min-width: 20px;
+    border-radius: 6px;
+    margin: 2px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #1D6F42;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0;
+}
+
+/* --- MOD END --- */

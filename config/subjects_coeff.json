@@ -1,0 +1,173 @@
+{
+  "subjects": {
+    "MATH": {
+      "name": "Mathématiques",
+      "coefficient": 3.0,
+      "category": "Sciences",
+      "color": "#4CAF50",
+      "required": true
+    },
+    "AR": {
+      "name": "Arabe", 
+      "coefficient": 2.0,
+      "category": "Langues",
+      "color": "#FF9800",
+      "required": true
+    },
+    "FR": {
+      "name": "Français",
+      "coefficient": 2.0,
+      "category": "Langues", 
+      "color": "#2196F3",
+      "required": true
+    },
+    "SN": {
+      "name": "Sciences Naturelles",
+      "coefficient": 2.0,
+      "category": "Sciences",
+      "color": "#009688",
+      "required": true
+    },
+    "HG": {
+      "name": "Histoire-Géographie",
+      "coefficient": 1.5,
+      "category": "Sciences Humaines",
+      "color": "#795548",
+      "required": true
+    },
+    "EI": {
+      "name": "Éducation Islamique",
+      "coefficient": 1.0,
+      "category": "Religion",
+      "color": "#9C27B0",
+      "required": true
+    },
+    "EP": {
+      "name": "Éducation Physique",
+      "coefficient": 1.0,
+      "category": "Sport",
+      "color": "#F44336",
+      "required": false
+    },
+    "PC": {
+      "name": "Physique-Chimie",
+      "coefficient": 2.5,
+      "category": "Sciences",
+      "color": "#3F51B5",
+      "required": false
+    },
+    "ANG": {
+      "name": "Anglais",
+      "coefficient": 1.5,
+      "category": "Langues",
+      "color": "#607D8B",
+      "required": false
+    },
+    "INFO": {
+      "name": "Informatique",
+      "coefficient": 1.0,
+      "category": "Technologie",
+      "color": "#673AB7",
+      "required": false
+    }
+  },
+  "grade_scales": {
+    "primary": {
+      "min": 0,
+      "max": 20,
+      "passing_grade": 10,
+      "excellence_threshold": 16,
+      "good_threshold": 14,
+      "average_threshold": 12
+    },
+    "secondary": {
+      "min": 0,
+      "max": 20,
+      "passing_grade": 10,
+      "excellence_threshold": 16,
+      "good_threshold": 14,
+      "average_threshold": 12
+    }
+  },
+  "class_levels": {
+    "1ère Année": {
+      "required_subjects": ["MATH", "AR", "FR", "SN", "EI"],
+      "optional_subjects": ["EP", "ANG"],
+      "grade_scale": "primary"
+    },
+    "2ème Année": {
+      "required_subjects": ["MATH", "AR", "FR", "SN", "HG", "EI"],
+      "optional_subjects": ["EP", "ANG"],
+      "grade_scale": "primary"
+    },
+    "3ème Année": {
+      "required_subjects": ["MATH", "AR", "FR", "SN", "HG", "EI"],
+      "optional_subjects": ["EP", "ANG", "INFO"],
+      "grade_scale": "primary"
+    },
+    "4ème Année": {
+      "required_subjects": ["MATH", "AR", "FR", "PC", "HG", "EI"],
+      "optional_subjects": ["EP", "ANG", "INFO"],
+      "grade_scale": "secondary"
+    },
+    "5ème Année": {
+      "required_subjects": ["MATH", "AR", "FR", "PC", "HG", "EI"],
+      "optional_subjects": ["EP", "ANG", "INFO"],
+      "grade_scale": "secondary"
+    },
+    "6ème Année": {
+      "required_subjects": ["MATH", "AR", "FR", "PC", "HG", "EI"],
+      "optional_subjects": ["EP", "ANG", "INFO"],
+      "grade_scale": "secondary"
+    }
+  },
+  "academic_terms": {
+    "trimestre_1": {
+      "name": "Premier Trimestre",
+      "weight": 0.33,
+      "start_month": 9,
+      "end_month": 12
+    },
+    "trimestre_2": {
+      "name": "Deuxième Trimestre", 
+      "weight": 0.33,
+      "start_month": 1,
+      "end_month": 3
+    },
+    "trimestre_3": {
+      "name": "Troisième Trimestre",
+      "weight": 0.34,
+      "start_month": 4,
+      "end_month": 6
+    }
+  },
+  "ocr_settings": {
+    "confidence_threshold": 70,
+    "fuzzy_match_threshold": 80,
+    "max_grade_value": 20,
+    "valid_grade_chars": "0123456789.,",
+    "preprocessing": {
+      "deskew": true,
+      "denoise": true,
+      "enhance_contrast": true
+    }
+  },
+  "report_settings": {
+    "default_template": "resources/template_grade.xlsx",
+    "output_directory": "exports",
+    "date_format": "%d/%m/%Y",
+    "grade_colors": {
+      "excellent": "#90EE90",
+      "good": "#FFE4B5", 
+      "average": "#FFFFE0",
+      "poor": "#FFB6C1",
+      "fail": "#FFA07A"
+    }
+  },
+  "ui_settings": {
+    "default_language": "fr",
+    "ribbon_icon_size": 32,
+    "table_row_height": 25,
+    "preview_image_size": 200
+  }
+}
